@@ -18,5 +18,21 @@ module.exports = {
     'react',
   ],
   rules: {
+    'import/extensions': [
+      2,
+      {
+        jsx: 'always',
+      },
+    ],
+    'react/function-component-definition': [
+      2,
+      {
+        namedComponents: 'arrow-function',
+      },
+    ],
+    'react/prop-types': [
+      0,
+      {},
+    ],
   },
 };
