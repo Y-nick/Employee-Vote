@@ -1,0 +1,50 @@
+.ideaListContainer {
+  margin: 5%;
+}
+
+.title {
+  margin-left: 20%;
+  margin-top: 0px;
+  font-size: 400%;
+
+}
+
+.lineOneContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: flex-end;
+  margin-right: 8%;
+  margin-left: 20%;
+  margin-top: 0%;
+  gap: 25%;
+}
+
+.submitDiv {
+  border-color: black;
+  border-style: solid;
+}
+
+.submitIdea {
+  width: 300px;
+  font-size: xx-large;
+  margin-left: 10%;
+}
+
+.submitDiv:hover {
+  background-color: aquamarine;
+  cursor: pointer;
+}
+
+#july {
+  font-size: x-large;
+  margin-bottom: 2%;
+  margin-left: 3.4%;
+}
+
+.bonusImage {
+  object-fit: cover;
+  width: 42%;
+  height: 42%;
+}
+
