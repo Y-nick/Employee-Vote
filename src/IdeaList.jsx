@@ -1,7 +1,9 @@
 import React from 'react';
 import Modal from 'react-modal';
+import axios from 'axios';
 import thousand from './assets/1000.jpg';
 import './IdeaList.css';
+import Submission from './Submission.jsx';
 
 class IdeaList extends React.Component {
   constructor(props) {
@@ -9,15 +11,30 @@ class IdeaList extends React.Component {
     this.state = {
       submitOpen: false,
     };
+
+    this.fetchAll = this.fetchAll.bind(this);
   }
 
-  fetchAll = () => {
-
-  };
+  componentDidMount() {
+    axios.get('/ideas').then(data => {
+      console.log('SUCCESS on initial GET')
+    }).catch(() => {
+      console.log('Error on intial GET')
+    });
+  }
 
   submitModal = (cb) => {
     this.setState({ submitOpen: cb });
   };
+
+  // test arrow and non-arrow function
+  fetchAll() {
+    axios.get('/ideas').then(data => {
+      console.log('SUCCESS on initial GET')
+    }).catch(() => {
+      console.log('Error on intial GET')
+    });
+  }
 
   render() {
     const { submitOpen } = this.state;
@@ -33,7 +50,10 @@ class IdeaList extends React.Component {
             <img className="bonusImage" src={thousand} alt="$1000" />
           </div>
         </div>
-        <Modal isOpen={false} />
+        <div className="listDiv">
+
+        </div>
+        { submitOpen ? <Submission submit={this.submitModal} /> : null }
       </div>
     );
   }

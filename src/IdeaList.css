@@ -32,8 +32,9 @@
 }
 
 .submitDiv:hover {
-  background-color: aquamarine;
+  background-color: goldenrod;
   cursor: pointer;
+  color:azure;
 }
 
 #july {

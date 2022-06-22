@@ -1,0 +1,11 @@
+.styleContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 3%;
+  margin: 3%;
+  row-gap: 5px;
+}
+
+.submitButton {
+  margin-top: 5%;
+}

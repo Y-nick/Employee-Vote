@@ -1,22 +1,30 @@
-const express = require('express');
 require('dotenv').config();
+const express = require('express');
+const path = require('path');
 const { getIdeas } = require('./models');
 
-const server = express();
-server.use(express.json());
+const app = express();
+app.use(express.json());
+app.use(express.static(path.join(__dirname, '../public')));
 
-server.get('/ideas', (req, res) => {
+app.get('/ideas', (req, res) => {
+  // getIdeas().then((data) => {
+  //   res.send(data.data);
+  // }).catch((data) => {
+  //   console.log('ERROR w/ get query', data);
+  //   res.send(data);
+  // });
+});
+
+app.post('/ideas', (req, res) => {
+  console.log(req.body);
+  res.send('TESSSSSSTTTTT???');
+});
+
+app.put('/ideas', (req, res) => {
   console.log(req.body);
 });
 
-server.post('/ideas', (req, res) => {
-  console.log(req.body);
-});
-
-server.put('/ideas', (req, res) => {
-  console.log(req.body);
-});
-
-server.listen(process.env.port, () => {
-  console.log(`listening on Port: ${process.env.port}`);
+app.listen(4000, () => {
+  console.log(`listening on Port: ${4000}`);
 });

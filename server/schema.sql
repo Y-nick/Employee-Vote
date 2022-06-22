@@ -5,7 +5,6 @@ DROP TABLE IF EXISTS ideas;
 CREATE TABLE
 ideas(
   id SERIAL PRIMARY KEY,
-  "date" TIMESTAMP,
   idea VARCHAR(5000),
   sub VARCHAR(300),
   author VARCHAR(180),

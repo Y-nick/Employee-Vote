@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.jsx',
+  entry: path.join(__dirname, './src/index.jsx'),
   output: {
     path: path.join(__dirname, 'public'),
     filename: 'bundle.js',
@@ -29,11 +29,4 @@ module.exports = {
     ]
   },
   devtool: "eval-cheap-module-source-map",
-  devServer: {
-    port: 3000,
-    static: {
-      directory: path.join(__dirname, "public")
-    },
-    compress: true
-  }
 };

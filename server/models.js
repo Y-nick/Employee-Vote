@@ -1,7 +1,7 @@
 const { query } = require('./db.js');
 
 const getIdeas = () => {
-  const text = '';
+  const text = 'SELECT * FROM ideas';
   return query(text);
 };
 
