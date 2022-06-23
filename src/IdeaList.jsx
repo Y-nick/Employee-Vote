@@ -22,14 +22,10 @@ class IdeaList extends React.Component {
     this.setState({ submitOpen: cb });
   };
 
-  filterByDept = (deptNum) => {
-    const { ideaData } = this.state;
-    return ideaData.filter((idea) => {
-      if (idea.department_id === deptNum && idea.department_id !== undefined) {
-        return idea;
-      }
-      return ideaData;
-    });
+  filterByDept = (e, deptNum) => {
+    console.log(e.target.value);
+    this.setState({ currentID: e.target.value });
+    this.fetchAll();
   };
 
   vote = (idea) => {
@@ -57,19 +53,19 @@ class IdeaList extends React.Component {
   };
 
   render() {
-    const { submitOpen, ideaData, currentID} = this.state;
+    const { submitOpen, ideaData, currentID } = this.state;
     return (
       <div className="ideaListContainer">
         <h1 className="title">Ideas of the Month!</h1>
         <div className="lineOneContainer">
           <div className="dropdownDiv">
             <div className="sortBy">Sort By Dept.</div>
-            <select id="dept">
-              <option value="Select">Select Dept.</option>
-              <option onClick={() => { this.setState({ currentID: 88 }); }} value="IT">IT</option>
-              <option value="Accounting">Accounting</option>
-              <option value="Finance">Finance</option>
-              <option value="HR">HR</option>
+            <select onChange={(e) => { this.filterByDept(e); }} id="dept">
+              <option value="ALL">All Departments</option>
+              <option value="1">IT</option>
+              <option value="2">Accounting</option>
+              <option value="3">Finance</option>
+              <option value="4">HR</option>
             </select>
           </div>
           <div className="submitDiv">
@@ -86,7 +82,7 @@ class IdeaList extends React.Component {
             ideaData.sort((a, b) => (
               b.votes - a.votes
             )).filter((idea) => {
-              if (idea.department_id === currentID) {
+              if (idea.department_id.toString() === currentID) {
                 return idea;
               }
               if (currentID === 'ALL') {
