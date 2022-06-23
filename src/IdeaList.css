@@ -13,9 +13,23 @@
   display: flex;
   flex-direction: row;
   margin-right: 8%;
-  margin-left: 20%;
+  margin-left: 10%;
   margin-top: 0%;
-  gap: 25%;
+  gap: 10%;
+}
+
+.dropdownDiv {
+  margin-top: 4%;
+}
+
+.sortBy {
+  margin-left: 4%;
+  font-size: large;
+  width: 120px;
+}
+
+#dept {
+  width: 120px;
 }
 
 .submitDiv {

@@ -10,6 +10,7 @@ class IdeaList extends React.Component {
     this.state = {
       submitOpen: false,
       ideaData: [],
+      currentID: 'ALL',
     };
   }
 
@@ -21,8 +22,14 @@ class IdeaList extends React.Component {
     this.setState({ submitOpen: cb });
   };
 
-  rankVotes = () => {
-
+  filterByDept = (deptNum) => {
+    const { ideaData } = this.state;
+    return ideaData.filter((idea) => {
+      if (idea.department_id === deptNum && idea.department_id !== undefined) {
+        return idea;
+      }
+      return ideaData;
+    });
   };
 
   vote = (idea) => {
@@ -50,11 +57,21 @@ class IdeaList extends React.Component {
   };
 
   render() {
-    const { submitOpen, ideaData } = this.state;
+    const { submitOpen, ideaData, currentID} = this.state;
     return (
       <div className="ideaListContainer">
         <h1 className="title">Ideas of the Month!</h1>
         <div className="lineOneContainer">
+          <div className="dropdownDiv">
+            <div className="sortBy">Sort By Dept.</div>
+            <select id="dept">
+              <option value="Select">Select Dept.</option>
+              <option onClick={() => { this.setState({ currentID: 88 }); }} value="IT">IT</option>
+              <option value="Accounting">Accounting</option>
+              <option value="Finance">Finance</option>
+              <option value="HR">HR</option>
+            </select>
+          </div>
           <div className="submitDiv">
             <h3 className="submitIdea" onClick={this.submitModal} >Submit Your Idea</h3>
           </div>
@@ -68,7 +85,14 @@ class IdeaList extends React.Component {
           {
             ideaData.sort((a, b) => (
               b.votes - a.votes
-            )).map((idea) => (
+            )).filter((idea) => {
+              if (idea.department_id === currentID) {
+                return idea;
+              }
+              if (currentID === 'ALL') {
+                return idea;
+              }
+            }).map((idea) => (
               <div className="listItem" key={idea.id}>
                 <div className="descriptionDiv">
                   <div className="author">{`Author: ${idea.author}`}</div>
