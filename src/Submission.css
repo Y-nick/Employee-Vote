@@ -2,10 +2,24 @@
   display: flex;
   flex-direction: column;
   gap: 3%;
-  margin: 3%;
+  margin: 10%;
+  margin-left: 15%;
+  margin-right: 15%;
   row-gap: 5px;
+  color: whitesmoke;
 }
 
 .submitButton {
-  margin-top: 5%;
+  margin-top: 4%;
+  margin-bottom: 1%;
+}
+
+.closeDiv {
+  display: flex;
+  flex-direction: row-reverse;
+  cursor: pointer;
+}
+
+.bi-x-square:hover {
+  background-color: red;
 }

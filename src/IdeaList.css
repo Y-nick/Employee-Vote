@@ -12,10 +12,10 @@
 .lineOneContainer {
   display: flex;
   flex-direction: row;
+  margin-left: 8%;
   margin-right: 8%;
-  margin-left: 10%;
   margin-top: 0%;
-  gap: 10%;
+  gap: 15%;
 }
 
 .dropdownDiv {
@@ -29,7 +29,9 @@
 }
 
 #dept {
-  width: 120px;
+  width: 140px;
+  height: 40px;
+  font-size: medium;
 }
 
 .submitDiv {
@@ -75,6 +77,8 @@
   display: flex;
   flex-direction: column;
   margin-top: 4%;
+  margin-left: 8%;
+  margin-right: 8%;
 }
 
 .listItem {
@@ -88,6 +92,7 @@
   padding: 3.5%;
   border-top-left-radius: 20%;
   border-bottom-right-radius: 20%;
+  font-size: large;
 }
 
 .descriptionDiv {
@@ -95,7 +100,7 @@
   flex-direction: row;
   justify-items: center;
   justify-content: center;
-  gap: 8%;
+  gap: 6%;
 
 }
 
@@ -116,7 +121,11 @@
 
 .votes {
   text-decoration: underline;
-  width: 70px;
-  margin-left: 2%;
+  width: 80px;
+  margin-left: 1%;
+}
+
+.bi-arrow-up-square:hover {
+  background-color: goldenrod;
 }
 
