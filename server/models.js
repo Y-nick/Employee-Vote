@@ -14,7 +14,7 @@ const postIdea = (valObj) => {
 
 const putVote = (valObj) => {
   const { id } = valObj;
-  const text = `UPDATE ideas SET votes = ((SELECT votes WHERE id = ${id}) +8000) WHERE id = ${id}`;
+  const text = `UPDATE ideas SET votes = ((SELECT votes WHERE id = ${id}) +1) WHERE id = ${id}`;
   return query(text);
 };
 

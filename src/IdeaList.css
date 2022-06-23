@@ -6,7 +6,7 @@
   margin-left: 20%;
   margin-top: 0px;
   font-size: 400%;
-
+  color: #030027;
 }
 
 .lineOneContainer {
@@ -19,10 +19,11 @@
 }
 
 .submitDiv {
-  border-color: black;
+  border-color: #030027;
   border-style: solid;
   border-top-left-radius: 20%;
   border-bottom-right-radius: 20%;
+  color: #030027;
 }
 
 .submitIdea {
@@ -40,6 +41,7 @@
 #july {
   font-size: x-large;
   margin-bottom: 2%;
+  color: #030027;
 }
 
 .bonDiv {
@@ -50,6 +52,7 @@
 .thousand {
   font-size: xx-large;
   font-weight: 700;
+  color: #030027;
 }
 
 .listDiv {
@@ -73,7 +76,7 @@
   flex-direction: row;
   justify-items: center;
   justify-content: center;
-  gap: 10%;
+  gap: 8%;
 
 }
 
@@ -82,8 +85,19 @@
   text-decoration: underline;
 }
 
+.voteDiv {
+  display: flex;
+  flex-direction: row;
+  gap: 2%;
+}
+
+.bootstrap {
+  cursor: pointer;
+}
+
 .votes {
   text-decoration: underline;
-  background-color: black;
+  width: 70px;
+  margin-left: 2%;
 }
 

@@ -26,7 +26,6 @@ app.post('/ideas', (req, res) => {
 });
 
 app.put('/ideas', (req, res) => {
-  console.log(req.body);
   putVote(req.body).then((data) => {
     res.send(data);
   }).catch((data) => {
