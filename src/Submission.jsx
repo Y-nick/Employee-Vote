@@ -9,13 +9,16 @@ class Submission extends React.Component {
     this.state = {
       modalOpen: true,
       idea: '',
-      name: '',
+      author: '',
       department: '',
-      id: '',
+      department_id: '',
+      sub: '',
     };
   }
 
   componentDidMount() {
+    const { fetchAll } = this.props;
+    fetchAll();
   }
 
   close = () => {
@@ -26,16 +29,17 @@ class Submission extends React.Component {
 
   postSubmit = () => {
     const {
-      idea, name, department, id,
+      idea, author, department, department_id, sub,
     } = this.state;
     const options = {
       url: '/ideas',
       method: 'post',
       data: {
         idea,
-        name,
+        author,
         department,
-        id,
+        department_id,
+        sub,
       },
     };
     axios(options).then((data) => {
@@ -43,6 +47,7 @@ class Submission extends React.Component {
     }).catch(() => {
       console.log('error on post');
     });
+    alert('SUCCESS!');
     this.close();
   };
 
@@ -52,6 +57,13 @@ class Submission extends React.Component {
       <Modal isOpen={modalOpen} appElement={document.getElementById('root')}>
         <div className="styleContainer">
           <h3>Idea Submission Form</h3>
+          <div>Subject:</div>
+          <input
+            className="subjectSubmit"
+            placeholder="What's this all about?"
+            onChange={(e) => { this.setState({ sub: e.target.value }); }}
+          />
+          <div>What is your idea?</div>
           <textarea
             className="textArea"
             placeholder="*Submit Your Idea!"
@@ -61,21 +73,21 @@ class Submission extends React.Component {
           />
           <div>Name:</div>
           <input
-            className="name"
+            className="nameSubmit"
             placeholder="Who are you?"
-            onChange={(e) => { this.setState({ name: e.target.value }); }}
+            onChange={(e) => { this.setState({ author: e.target.value }); }}
           />
           <div>Department:</div>
           <input
             placeholder="Where are you?"
-            className="department"
+            className="departmentSubmit"
             onChange={(e) => { this.setState({ department: e.target.value }); }}
           />
           <div>Department ID:</div>
           <input
             placeholder="Digits?"
             className="deptID"
-            onChange={(e) => { this.setState({ id: e.target.value }); }}
+            onChange={(e) => { this.setState({ department_id: e.target.value }); }}
           />
           <button onClick={this.postSubmit} className="submitButton" type="button">SUBMIT</button>
           <button onClick={this.close} type="button">CLOSE</button>

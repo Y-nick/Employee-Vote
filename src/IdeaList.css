@@ -23,6 +23,8 @@
 .submitDiv {
   border-color: black;
   border-style: solid;
+  border-top-left-radius: 20%;
+  border-bottom-right-radius: 20%;
 }
 
 .submitIdea {
@@ -32,9 +34,9 @@
 }
 
 .submitDiv:hover {
-  background-color: goldenrod;
+  background-color: #151E3F;
   cursor: pointer;
-  color:azure;
+  color:whitesmoke;
 }
 
 #july {
@@ -47,5 +49,40 @@
   object-fit: cover;
   width: 42%;
   height: 42%;
+}
+
+.listDiv {
+  display: flex;
+  flex-direction: column;
+  margin-top: 4%;
+}
+
+.listItem {
+  margin-top: 4%;
+  margin-bottom: 2%;
+  background-color: #151E3F;
+  color: whitesmoke;
+  padding: 3.5%;
+  border-top-left-radius: 20%;
+  border-bottom-right-radius: 20%;
+}
+
+.descriptionDiv {
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  justify-content: center;
+  gap: 10%;
+
+}
+
+.author, .subject, .department {
+  margin-bottom: 1.5%;
+  text-decoration: underline;
+}
+
+.votes {
+  text-decoration: underline;
+  background-color: black;
 }
 

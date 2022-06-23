@@ -10,17 +10,12 @@ class IdeaList extends React.Component {
     super(props);
     this.state = {
       submitOpen: false,
+      ideaData: [],
     };
-
-    this.fetchAll = this.fetchAll.bind(this);
   }
 
   componentDidMount() {
-    axios.get('/ideas').then(data => {
-      console.log('SUCCESS on initial GET')
-    }).catch(() => {
-      console.log('Error on intial GET')
-    });
+    this.fetchAll();
   }
 
   submitModal = (cb) => {
@@ -28,16 +23,16 @@ class IdeaList extends React.Component {
   };
 
   // test arrow and non-arrow function
-  fetchAll() {
+  fetchAll = () => {
     axios.get('/ideas').then(data => {
-      console.log('SUCCESS on initial GET')
+      this.setState({ ideaData: data.data });
     }).catch(() => {
-      console.log('Error on intial GET')
+      console.log('Error on intial GET');
     });
-  }
+  };
 
   render() {
-    const { submitOpen } = this.state;
+    const { submitOpen, ideaData } = this.state;
     return (
       <div className="ideaListContainer">
         <h1 className="title">Ideas of the Month!</h1>
@@ -51,9 +46,21 @@ class IdeaList extends React.Component {
           </div>
         </div>
         <div className="listDiv">
-
+          {
+            ideaData.map((idea) => (
+              <div className="listItem" key={idea.id}>
+                <div className="descriptionDiv">
+                  <div className="author">{`Author: ${idea.author}`}</div>
+                  <div className="subject">{`Subject: ${idea.sub}`}</div>
+                  <div className="department">{`Department: ${idea.department}`}</div>
+                  <div className="votes">{`Votes: ${idea.votes}`}</div>
+                </div>
+                <div>{idea.idea}</div>
+              </div>
+            ))
+          }
         </div>
-        { submitOpen ? <Submission submit={this.submitModal} /> : null }
+        { submitOpen ? <Submission fetchAll={this.fetchAll} submit={this.submitModal} /> : null }
       </div>
     );
   }

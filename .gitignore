@@ -5,7 +5,7 @@
 npm
 npm-debug.log
 node_modules/
-dist/bundle.js
+public/bundle.js
 config.js
 
 pids
