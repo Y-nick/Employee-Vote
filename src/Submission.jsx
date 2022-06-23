@@ -31,6 +31,7 @@ class Submission extends React.Component {
     const {
       idea, author, department, department_id, sub,
     } = this.state;
+    const { fetchAll } = this.props;
     const options = {
       url: '/ideas',
       method: 'post',
@@ -48,6 +49,7 @@ class Submission extends React.Component {
       console.log('error on post');
     });
     alert('SUCCESS!');
+    fetchAll();
     this.close();
   };
 

@@ -12,7 +12,14 @@ const postIdea = (valObj) => {
   return query(text, values);
 };
 
+const putVote = (valObj) => {
+  const { id } = valObj;
+  const text = `UPDATE ideas SET votes = ((SELECT votes WHERE id = ${id}) +8000) WHERE id = ${id}`;
+  return query(text);
+};
+
 module.exports = {
   getIdeas,
   postIdea,
+  putVote,
 };

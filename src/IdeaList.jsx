@@ -40,9 +40,10 @@ class IdeaList extends React.Component {
           <div className="submitDiv">
             <h3 className="submitIdea" onClick={this.submitModal} >Submit Your Idea</h3>
           </div>
-          <div>
+          <div className="bonDiv">
             <div id="july">JULY BONUS</div>
-            <img className="bonusImage" src={thousand} alt="$1000" />
+            {/* <img className="bonusImage" src={thousand} alt="$1000" /> */}
+            <div className="thousand">$1000.00</div>
           </div>
         </div>
         <div className="listDiv">

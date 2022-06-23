@@ -12,8 +12,6 @@
 .lineOneContainer {
   display: flex;
   flex-direction: row;
-  justify-content: right;
-  align-items: flex-end;
   margin-right: 8%;
   margin-left: 20%;
   margin-top: 0%;
@@ -42,13 +40,16 @@
 #july {
   font-size: x-large;
   margin-bottom: 2%;
-  margin-left: 3.4%;
 }
 
-.bonusImage {
-  object-fit: cover;
-  width: 42%;
-  height: 42%;
+.bonDiv {
+  margin-top: 3%;
+  width: 200px;
+}
+
+.thousand {
+  font-size: xx-large;
+  font-weight: 700;
 }
 
 .listDiv {
