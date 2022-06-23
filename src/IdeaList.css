@@ -34,8 +34,10 @@
 
 .submitDiv:hover {
   background-color: #151E3F;
+  border-width: 2px;
   cursor: pointer;
   color:whitesmoke;
+  border-color: whitesmoke;
 }
 
 #july {
@@ -65,6 +67,9 @@
   margin-top: 4%;
   margin-bottom: 2%;
   background-color: #151E3F;
+  border-style: solid;
+  border-width: 2px;
+  border-color: whitesmoke;
   color: whitesmoke;
   padding: 3.5%;
   border-top-left-radius: 20%;

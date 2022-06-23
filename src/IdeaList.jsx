@@ -66,7 +66,9 @@ class IdeaList extends React.Component {
         </div>
         <div className="listDiv">
           {
-            ideaData.map((idea) => (
+            ideaData.sort((a, b) => (
+              b.votes - a.votes
+            )).map((idea) => (
               <div className="listItem" key={idea.id}>
                 <div className="descriptionDiv">
                   <div className="author">{`Author: ${idea.author}`}</div>

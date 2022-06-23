@@ -7,8 +7,8 @@ const getIdeas = () => {
 
 const postIdea = (valObj) => {
   const { idea, sub, author, department, department_id } = valObj;
-  const text = 'INSERT INTO ideas(id, idea, sub, author, department, department_id) VALUES((SELECT max(id)+1 FROM ideas), $1, $2, $3, $4, $5)';
-  const values = [idea, sub, author, department, department_id];
+  const text = 'INSERT INTO ideas(id, idea, sub, author, department, department_id, votes) VALUES((SELECT max(id)+1 FROM ideas), $1, $2, $3, $4, $5, $6)';
+  const values = [idea, sub, author, department, department_id, 0];
   return query(text, values);
 };
 
